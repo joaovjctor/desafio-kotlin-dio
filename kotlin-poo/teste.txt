@@ -1,0 +1,3 @@
+teste de recuperação de alterações em um arquivo com o git hub
+
+"esse texto é o original do nosso arquivo"
