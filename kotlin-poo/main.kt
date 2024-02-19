@@ -1,5 +1,7 @@
+fun printPersonList(vararg persons: String) {
+	for (p in persons) println(p)
+}
+
 fun main() {
-
-	println("hello world")
-
+	printPersonList("ana", "jose", "maria", "osvaldo", "berenice")
 }
