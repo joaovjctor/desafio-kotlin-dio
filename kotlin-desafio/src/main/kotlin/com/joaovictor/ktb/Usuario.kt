@@ -13,7 +13,7 @@ data class Usuario(val id: Int, val nome: String) {
     fun listarMatriculas() {
         println(formacoesMatriculadas.joinToString(
             prefix = "O usuário $nome está inscrito(a) nas seguintes formações:\n",
-            separator = "/n"
+            separator = "\n"
         ) { it.nome })
     }
 
