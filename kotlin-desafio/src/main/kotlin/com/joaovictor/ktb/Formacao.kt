@@ -1,30 +1,28 @@
 package com.joaovictor.ktb
 
-data class Formacao(val nome: String, val conteudos: List<ConteudoEducacional>, val nivel: NivelFormacao) {
-    private val matriculados = mutableListOf<Usuario>()
+data class Formacao(val nome: String, val conteudos: List<ConteudoEducacional>, val nivel: Nivel) {
+    private val usuariosInscritos = mutableListOf<Usuario>()
 
-    private val lerInscritos: List<Usuario> = matriculados
+    private val lerInscritos: List<Usuario> = usuariosInscritos
 
-    fun matricular(usuario: Usuario) {
-        matriculados.add(usuario)
-        println("Usuário ${usuario.nome} foi matriculado na formação $nome")
+    fun matricularUsuario(usuario: Usuario) {
+        usuariosInscritos.add(usuario)
     }
 
-    fun listarMatriculados(): List<Usuario> {
-        println("Usuários matriculados na formação $nome:")
-        return lerInscritos
+    fun listarMatriculados() {
+        println(lerInscritos.joinToString(prefix = "Usuários matriculados na formação $nome:\n", separator = "\n") {
+            "${it.nome}"
+        })
     }
 
-    fun listarConteudo(): List<ConteudoEducacional> {
-        println("Os seguintes conteúdos fazem parte da formação $nome:")
-        return conteudos
+    fun listarConteudo() {
+        println(conteudos.joinToString(prefix = "Os seguintes conteúdos fazem parte da formação $nome:\n", separator = "\n") {
+            "Nome: ${it.nome} | Duração: ${it.duracao}h | Nível: ${it.nivel.proficiencia}"
+        })
     }
 
-    fun formacaoInfo(): String {
-        return """"
-            Nome: $nome
-            ${listarConteudo()}
-            Nível: $nivel
-            """.trimIndent()
+    fun formacaoInfo() {
+        println("Formação: $nome\nNível da formação: ${nivel.proficiencia}")
+        listarConteudo()
     }
 }

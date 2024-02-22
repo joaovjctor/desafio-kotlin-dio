@@ -1,6 +1,6 @@
 package com.joaovictor.ktb
 
-enum class NivelFormacao(val nivel: String) {
+enum class Nivel(val proficiencia: String) {
     BASICO("BÁSICO"),
     INTERMEDIARIO("INTERMEDIÁRIO"),
     AVANCADO("AVANÇADO"),
